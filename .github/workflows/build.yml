@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: jvbsl/litgit-action@v0.1
+    - uses: jvbsl/litgit-action@feature/test
       id: litgit
     - name: Test Version output
       run: echo "Informational version ${{ steps.litgit.outputs.INFORMATIONAL_VERSION }}"
