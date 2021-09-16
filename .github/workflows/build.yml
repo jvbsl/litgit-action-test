@@ -1,0 +1,27 @@
+name: LitGit build
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - feature/actions
+      - feature/gh-release
+  pull_request:
+jobs:
+  build:
+    env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix: 
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: jvbsl/litgit-action@v0.1
+      id: litgit
+    - name: Test Version output
+      run: echo ${{ steps.litgit.outputs.INFORMATIONAL_VERSION }}
