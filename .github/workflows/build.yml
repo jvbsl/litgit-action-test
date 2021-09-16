@@ -23,5 +23,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: jvbsl/litgit-action@feature/test
       id: litgit
+      with:
+        templates: ['*.template', 'other/*.template']
     - name: Test Version output
       run: echo "Informational version ${{ steps.litgit.outputs.INFORMATIONAL_VERSION }}"
