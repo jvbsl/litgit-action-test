@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: jvbsl/litgit-action@feature/test
+    - uses: jvbsl/litgit-action@master
       id: litgit
       with:
         templates: '*.template'
